@@ -1,0 +1,23 @@
+doctype html
+html(lang='en')
+  head
+    meta(charset='UTF-8')
+    meta(name='viewport', content='width=device-width')
+    title= title
+    block css
+      link(rel='stylesheet', href='/css/style.css')
+      link(rel='stylesheet', href='/components/angular-material/angular-material.css')
+
+    block js
+      if ENV_DEVELOPMENT
+        script(src='http://localhost:35729/livereload.js')
+        script(src='/components/angular/angular.js')
+        script(src='/components/angular-animate/angular-animate.js')
+        script(src='/components/angular-aria/angular-aria.js')
+        script(src='/components/angular-material/angular-material.js')
+
+
+        script(src='/js/app.js')
+        script(src='/js/map.js')
+  body(ng-app='jadeAngularExpress')
+    block content
