@@ -15,7 +15,7 @@ block content
                 {{update.success}} successful
                 {{update.failure}} failed
         md-button.md-raised.md-primairy Button
-  div(ng-controller="MapCtrl as map")
+  div(ng-controller="MapCtrl as map" ng-hide="true") //hidden
    md-content(layout-padding)
     md-grid-list(md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
         md-row-height-gt-md="1:1" md-row-height="4:3"
@@ -24,5 +24,19 @@ block content
                   ng-style="{'background':tile.color}"
                   md-colspan-gt-sm="{{tile.colspan}}"
                   md-rowspan-gt-sm="{{tile.rowspan}}")
+  
+  div(ng-hide ="true", ng-controller = "TestCtrl as testController", layout="row" layout-wrap)
+    div(ng-repeat="image in testController.map4")
+      img(ng-src="{{'map/Indar4/'+image}}", alt="{{image}}",flex="25")
+
+  div(ng-controller = "TestCtrl as testController")
+   md-grid-list(md-cols-sm="4", md-cols-md="4", md-cols-gt-md="4",
+                md-row-height-gt-md="1:1", md-row-height="2:2",
+                md-gutter="0px" md-gutter-gt-sm="-1px")
+    md-grid-tile(ng-repeat="image in testController.map4")
+      img(ng-src="{{'map/Indar4/'+image}}", alt="{{image}}",flex="100")
+
+  div(ng-controller = "TestCtrl as testController")
+    canvas(width="700", height="700", id="canvas", drawing)
 
 
