@@ -7,14 +7,23 @@ block content
     p See global upgrade statistics for a package
         input(type="text", placeholder="package name", ng-model="packageName"
             title="Enter package module to see update statistics")
-        button.btn(ng-click="loadStats()" title="click to search") Load
+        button.btn(ng-click="loadStats()" title="click to search") Zoom tool
         ul
             li(ng-repeat="update in updates").
                 {{update.name}} {{update.from}} -> {{update.to}}
                 {{update.probability | number:0}}%
                 {{update.success}} successful
                 {{update.failure}} failed
-        md-button.md-raised.md-primairy Button
+        md-button.md-raised.md-primairy Zoom tool
+        md-button.md-raised.md-primairy Pencil A
+        md-button.md-raised.md-primairy Pencil B
+        md-button.md-raised.md-primairy Pencil C
+        md-select(ng-model="this.selector") 
+          md-option full map
+          md-option x2
+          md-option x4
+          md-option x16
+          md-option x32
   div(ng-controller="MapCtrl as map" ng-hide="true") //hidden
    md-content(layout-padding)
     md-grid-list(md-cols-gt-md="12" md-cols-sm="3" md-cols-md="8"
@@ -29,7 +38,7 @@ block content
     div(ng-repeat="image in testController.map4")
       img(ng-src="{{'map/Indar4/'+image}}", alt="{{image}}",flex="25")
 
-  div(ng-controller = "TestCtrl as testController")
+  div(ng-hide ="true" ng-controller = "TestCtrl as testController")
    md-grid-list(md-cols-sm="4", md-cols-md="4", md-cols-gt-md="4",
                 md-row-height-gt-md="1:1", md-row-height="2:2",
                 md-gutter="0px" md-gutter-gt-sm="-1px")
